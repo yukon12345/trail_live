@@ -28,7 +28,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
         }else{
             //获得案件信息
             dataJson=request.data
-            alert(dataJson.anJianLeiBei)
             //承办部门
             $dn=$('input[name="departmentName"]')
             $dn.prev().prev().attr('placeholder',dataJson.chengBanBuMen)
