@@ -3,10 +3,12 @@
   "description": "右键复制粘贴网庭审直播信息，助您直播顺顺利利~~yukon12345",
   "name": "愉快庭审直播",
   "version": "1.0",
+
   "background": {
     "scripts": ["js/jquery-1.12.4.min.js","js/background.js"]
 //    "page": "page/background.html"
   },
+
   "homepage_url": "https://yukon12345.github.io/",
   "minimum_chrome_version": "40",
   "permissions": ["http://*/*", "https://*/*", "notifications" ,"contextMenus"],
@@ -23,13 +25,9 @@
   "content_scripts": [{
     "js": ["js/jquery-1.12.4.min.js","js/inject.js"],
     "css":["css/core.css"],
-    "matches": ["http://*/*","https://*/*" ],
-    "run_at": "document_end"
-  },{
-    "js": ["js/jquery-1.12.4.min.js","js/inject.js"],
-    "css":["css/core.css"],
-    "matches": ["*://*.taobao.com/*","*://*.tmall.com/*","*://*.tmall.hk/*","*://*.vip.com/*","*://*.jumei.com/*","*://*.jumeiglobal.com/*","*://*/*"],
-    "run_at": "document_end"
+    "matches": ["http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*", "https://*.baidu.com/*"],
+    "run_at": "document_end",
+    "all_frames":true
   }],
   "web_accessible_resources": ["images/*.png","images/*.gif"],
   "options_page": "page/pop.html",

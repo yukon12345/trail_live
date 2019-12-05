@@ -1,28 +1,29 @@
 //chrome.browserAction.setBadgeText({text: '直播'});
 //chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]});
 //omfcehcgiklgchnoppooeimmcecmmbfb
-
+var dataJson=null
 chrome.contextMenus.create({
     title: "粘贴案件信息",
     onclick: function () {
-        alert('粘贴完毕！');
+        sendMessageToContentScript({cmd:'parse', data:dataJson}, function(response)
+        {
+
+
+            // todo console.log('来自content的回复：'+response);
+        });
     },
     documentUrlPatterns: ['http://tingshen.court.gov.cn:81/jiameng/caseRelease*', 'https://*.baidu.com/*']
 });
-dataJson={};
+
 chrome.contextMenus.create({
     title: "复制案件信息",
     onclick: function () {
-        sendMessageToContentScript({cmd:'test', value:'你好，我是back!'}, function(response)
+
+        sendMessageToContentScript({cmd:'copy', value:'你好，我是back!'}, function(response)
         {
             dataJson=response
-            var views = chrome.extension.getViews({type:'popup'});
-            if(views.length > 0) {
-               views[0].getState();
-            }
-            // todo console.log('来自content的回复：'+response);
 
-            sendMessageToPopScript({cmd:'parse',value:response.anHao})
+            // todo console.log('来自content的回复：'+response);
         });
 
 

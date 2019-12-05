@@ -1,11 +1,10 @@
-function getState() {
-    var bg = chrome.extension.getBackgroundPage();
-    var j=bg.dataJson
-    if (j=={}){
-        return;
+var bg = chrome.extension.getBackgroundPage();
+
+$(function () {
+    j=bg.dataJson
+    if (j==null){
+        $('#state').html('当前没有复制任何案件信息')
     }else{
-        document.getElementById('state').html('当前复制了:'+j.anHao+' 的案件信息')
+        $('#state').html('当前复制了:'+j.anHao+' 的案件信息')
     }
-}
-getState()
-alert('11')
+})
