@@ -33,6 +33,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
             'shenPanZhang': getInfo($trs.eq(11)),
             'dangShiRen': getInfo($trs.eq(13)),
         }
+
         console.log(dataJson)
         sendResponse(dataJson);
     }else if(request.cmd == 'parse'){//粘贴

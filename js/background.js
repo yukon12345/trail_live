@@ -22,7 +22,17 @@ chrome.contextMenus.create({
         sendMessageToContentScript({cmd:'copy', value:'你好，我是back!'}, function(response)
         {
             dataJson=response
+            reg=/（([0-9]{4})）赣([0-9]{2,4})([\u4e00-\u9fa5]+)([0-9]{1,5})号/gi
+            arr=reg.exec(dataJson.anHao,'i')
+            xuHao=arr[4]
+            chrome.browserAction.setBadgeText({text: xuHao});
 
+            chrome.notifications.create(null, {
+                type: 'basic',
+                iconUrl: 'img/living.png',
+                title: '愉快庭审直播:案件信息复制成功',
+                message: '已复制'+dataJson.anHao+'('+dataJson.anJianMing+')案件信息'
+            });
             // todo console.log('来自content的回复：'+response);
         });
 
