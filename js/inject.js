@@ -1,48 +1,63 @@
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
+window.addEventListener("message", function(e)
 {
+    console.log(e.data);
+    dataJson=e.data
+    //承办部门
+    $('#departmentName').combobox('setValue', dataJson.chengBanBuMen);
+    anHao=dataJson.anHao
+    //用正则匹配出信息
+    reg=/（([0-9]{4})）赣([0-9]{2,4})([\u4e00-\u9fa5]+)([0-9]{1,5})号/gi
+    arr=reg.exec(anHao,'i')
+    nianFen=arr[1]
+    daiZi=arr[3]
+    xuHao=arr[4]
 
-    if(request.cmd == 'copy') {
+    // $('.caseNo-year').combobox('setValue', nianFen);
+    // $('.caseNo-word').combobox('setValue', daiZi);
+    // $('.only-caseNo').combobox('setValue', xuHao);
+    //案由
+    $('#caseCause').combobox('setValue', dataJson.liAnAnYou);
+    //开庭法庭
+    $('#roomName').combobox('setValue', dataJson.KaiTingFaTing);
+    //承办人
+    $('#cbr').combobox('setValue', dataJson.chengBanRen);
 
-        $trs = $('.f-table tr')
-        if($trs==null)return;
-        dataJson = {
-            'anJianMing': getInfo($trs.eq(0)),
-            'anHao': getInfo($trs.eq(1)),
-            'hls': getInfo($trs.eq(3)),
-            'chengBanBuMen': getInfo($trs.eq(4)),
-            'KaiTingFaTing': getInfo($trs.eq(5)),
-            'chengBanRen': getInfo($trs.eq(6)),
-            'anJianLeiBei': getInfo($trs.eq(7)),
-            'shenPanChengXu': getInfo($trs.eq(8)),
-            'liAnAnYou': getInfo($trs.eq(9)),
-            'dangShiRen': getInfo($trs.eq(13)),
-        }
-        console.log(dataJson)
-        sendResponse(dataJson);
-    }else if(request.cmd == 'parse'){//粘贴
-        typeArr={'刑事':0,'民事':1,'行政':2}
-        if(request.data==null){
-            alert('案件信息为空！')
-            return;
-        }else{
-            //获得案件信息
-            dataJson=request.data
-            //承办部门
-            $dn=$('input[name="departmentName"]')
-            $dn.prev().prev().attr('placeholder',dataJson.chengBanBuMen)
-            $dn.val(dataJson.chengBanBuMen)
-            //触发点击
-            if(typeArr[dataJson.anJianLeiBei]!=null){
-            $('.caseType').find('em')[typeArr[dataJson.anJianLeiBei]].click();
 
-            }
+    if(dataJson.shenPanZhang!='') {
+        $('#judge_name_1').combobox('setValue', dataJson.shenPanZhang);
+    }else{
+        $('#judge_name_1').combobox('setValue', dataJson.chengBanRen);
+    }
+    if(dataJson.anJianLeiBei=='刑事'){
+        yuanGao='检察院'
+        beiGao=dataJson.dangShiRen
+        $('#party_txt_2').find('em')[4].click()
+    }else {
+        console.log(getDsr(dataJson.dangShiRen))
+        yuanGao=getDsr(dataJson.dangShiRen)[0]
+        beiGao=getDsr(dataJson.dangShiRen)[1]
+        $('#party_txt_2').find('em')[1].click()
+    }
 
-        }
+
+    //原告
+    $('#party_name_1').textbox('setValue', yuanGao);
+
+    //被告
+    if(beiGao!=''){
+        $('#party_name_2').textbox('setValue', beiGao);
 
     }
-});
 
-function getInfo($tr) {
-        return $tr.find('td').eq(1).text().trim()
+}, false);
+//获得当事人
+function getDsr(dsr) {
+    if(dsr.indexOf(';')){
+        dsrArr=dsr.split(';')
+        yuanGao=dsrArr[0].split(':')[1]
+        beiGao=dsrArr[1].split(':')[1]
+        return [yuanGao,beiGao]
+    }else{
+        return[dsr,'']
+    }
 }
