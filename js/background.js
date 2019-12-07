@@ -1,3 +1,8 @@
+/**
+ * Created by IntelliJ IDEA.
+ * @author  yukon12345
+ * @email yukon12345@163.com
+ */
 //chrome.browserAction.setBadgeText({text: '直播'});
 //chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]});
 //omfcehcgiklgchnoppooeimmcecmmbfb

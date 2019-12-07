@@ -1,3 +1,8 @@
+/**
+ * Created by IntelliJ IDEA.
+ * @author  yukon12345
+ * @email yukon12345@163.com
+ */
 function pad(num, n) {//填充0
     var len = num.toString().length;
     while(len < n) {
@@ -6,7 +11,7 @@ function pad(num, n) {//填充0
     }
     return num;
 }
-//获得当事人
+//当事人信息拆分
 function getDsr(dsr) {
     if(dsr.indexOf(';')){
         dsrArr=dsr.split(';')
@@ -114,8 +119,6 @@ window.addEventListener("message", function(e)
 
     }else {
         //民事、行政、赔偿，经观察通用
-
-
         if(dataJson.shenPanChengXu=='一审'||dataJson.shenPanChengXu=='') {
             //一审和民特同样顺序
             $('#party_txt_2').find('em')[1].click()

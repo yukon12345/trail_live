@@ -1,9 +1,14 @@
+/**
+ * Created by IntelliJ IDEA.
+ * @author  yukon12345
+ * @email yukon12345@163.com
+ */
 function injectCustomJs(jsPath)//注入js到中国庭审
 {
     jsPath = jsPath || 'js/inject.js';
     var temp = document.createElement('script');
     temp.setAttribute('type', 'text/javascript');
-    // 获得的地址类似：chrome-extension://ihcokhadfjfchaeagdoclpnjdiokfakg/js/inject.js
+    // 获得的地址类似：chrome-extension://[id]/js/inject.js
     temp.src = chrome.extension.getURL(jsPath);
     temp.onload = function()
     {

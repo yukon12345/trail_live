@@ -1,3 +1,8 @@
+/**
+ * Created by IntelliJ IDEA.
+ * @author  yukon12345
+ * @email yukon12345@163.com
+ */
 var bg = chrome.extension.getBackgroundPage();
 
 $(function () {
