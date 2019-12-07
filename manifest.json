@@ -31,7 +31,10 @@
   },{
     "js": ["js/jquery-1.12.4.min.js","js/content.js"],
     "css":["css/core.css"],
-    "matches": ["http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*", "https://*.baidu.com/*","http://tingshen.court.gov.cn:81/jiameng/caseRelease*"],
+    "matches": ["http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*", "https://*.baidu.com/*",
+      //"http://tingshen.court.gov.cn:81/jiameng/caseRelease*"
+      "http://tingshen.court.gov.cn:81/*"
+    ],
     "run_at": "document_end",
     "all_frames":true
   }],

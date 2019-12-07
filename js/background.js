@@ -2,6 +2,7 @@
 //chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]});
 //omfcehcgiklgchnoppooeimmcecmmbfb
 var dataJson=null
+chrome.browserAction.setBadgeText({text: ''});
 chrome.contextMenus.create({
     title: "粘贴案件信息",
     onclick: function () {
@@ -30,8 +31,8 @@ chrome.contextMenus.create({
             chrome.notifications.create(null, {
                 type: 'basic',
                 iconUrl: 'img/living.png',
-                title: '愉快庭审直播:案件信息复制成功',
-                message: '已复制'+dataJson.anHao+'('+dataJson.anJianMing+')案件信息'
+                title: '[愉快庭审直播]案件信息已复制:',
+                message: dataJson.anHao+'('+dataJson.anJianMing+')'
             });
             // todo console.log('来自content的回复：'+response);
         });

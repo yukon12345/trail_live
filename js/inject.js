@@ -116,7 +116,7 @@ window.addEventListener("message", function(e)
         //民事、行政、赔偿，经观察通用
 
 
-        if(dataJson.shenPanChengXu=='一审') {
+        if(dataJson.shenPanChengXu=='一审'||dataJson.shenPanChengXu=='') {
             //一审和民特同样顺序
             $('#party_txt_2').find('em')[1].click()
 
