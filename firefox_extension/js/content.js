@@ -12,14 +12,13 @@ function injectCustomJs(jsPath)//注入js到中国庭审
     temp.type = "text\/javascript";
     //获得类似 moz-extension://33c89bc4-76b5-4474-86e8-20ed77a26be4/js/inject.js
     temp.src = browser.extension.getURL(jsPath);
-    console.log(temp.src)
     //temp.onload = function()
     //{
         // 放在页面不好看，执行完后移除掉
        // this.parentNode.removeChild(this);
    //};
     oHead.appendChild(temp);
-    console.log(temp.type)
+
 }
 injectCustomJs();
 browser.runtime.onMessage.addListener(function(request, sender, sendResponse)

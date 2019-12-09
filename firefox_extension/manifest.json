@@ -14,7 +14,6 @@
     }
   },
   "homepage_url": "https://yukon12345.github.io/",
-  "minimum_chrome_version": "40",
   "permissions": ["http://*/*", "https://*/*", "notifications" ,"menus"],
   "icons": {
     "16": "img/living.png",
@@ -29,7 +28,7 @@
   "content_scripts": [{
     "js": ["js/jquery-1.12.4.min.js","js/content.js"],
     "css":["css/core.css"],
-    "matches": ["http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*", "https://*.baidu.com/*","http://tingshen.court.gov.cn:81/jiameng/caseRelease*"],
+    "matches": ["http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*", "https://*.baidu.com/*","http://tingshen.court.gov.cn/jiameng/caseRelease*"],
     "run_at": "document_end",
     "all_frames":true
   }],

@@ -4,10 +4,11 @@
  * @email yukon12345@163.com
  */
 //chrome.browserAction.setBadgeText({text: '直播'});
-//chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]});
+
 //omfcehcgiklgchnoppooeimmcecmmbfb
 var dataJson=null
 chrome.browserAction.setBadgeText({text: ''});
+chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]});
 chrome.contextMenus.create({
     title: "粘贴案件信息",
     onclick: function () {

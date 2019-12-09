@@ -4,18 +4,16 @@
  * @email yukon12345@163.com
  */
 
-//browser.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]});
+browser.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]});
 //omfcehcgiklgchnoppooeimmcecmmbfb
 
 
 var dataJson=null
 browser.browserAction.setBadgeText({text: ''});
-
 browser.menus.create({
     title: "复制案件信息",
     id: "copy",
     contexts: ["all"],
-
     onclick: function () {
 
         sendMessageToContentScript({cmd:'copy', value:'你好，我是back!'}, function(response)
@@ -25,7 +23,6 @@ browser.menus.create({
             arr=reg.exec(dataJson.anHao,'i')
             xuHao=arr[4]
             browser.browserAction.setBadgeText({text: xuHao});
-
             browser.notifications.create(null, {
                 type: 'basic',
                 iconUrl: 'img/living.png',
@@ -45,13 +42,12 @@ browser.menus.create({
     id: "parse",
     contexts: ["all"],
     onclick: function () {
-        console.log('来自content的回复：');
         sendMessageToContentScript({cmd:'parse', data:dataJson}, function(response)
         {
-            console.log('来自content的回复：'+response);
+            //console.log('来自content的回复：'+response);
         });
     },
-    //documentUrlPatterns  : ['http://tingshen.court.gov.cn:81/jiameng/caseRelease*', 'https://*.baidu.com/*']
+    documentUrlPatterns:['http://tingshen.court.gov.cn/jiameng/caseRelease*', 'https://*.baidu.com/*']
 });
 function sendMessageToContentScript(message, callback)
 {
