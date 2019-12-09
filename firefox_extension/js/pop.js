@@ -3,7 +3,7 @@
  * @author  yukon12345
  * @email yukon12345@163.com
  */
-var bg = chrome.extension.getBackgroundPage();
+var bg = browser.runtime.getBackgroundPage();
 
 $(function () {
     j=bg.dataJson

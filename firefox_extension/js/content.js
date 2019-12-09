@@ -3,22 +3,26 @@
  * @author  yukon12345
  * @email yukon12345@163.com
  */
+console.log('tingshen')
 function injectCustomJs(jsPath)//注入js到中国庭审
 {
+    oHead=document.head || document.getElementsByTagName("head")[0]
     jsPath = jsPath || 'js/inject.js';
     var temp = document.createElement('script');
-    temp.setAttribute('type', 'text/javascript');
-    // 获得的地址类似：chrome-extension://[id]/js/inject.js
-    temp.src = chrome.extension.getURL(jsPath);
-    temp.onload = function()
-    {
+    temp.type = "text\/javascript";
+    //获得类似 moz-extension://33c89bc4-76b5-4474-86e8-20ed77a26be4/js/inject.js
+    temp.src = browser.extension.getURL(jsPath);
+    console.log(temp.src)
+    //temp.onload = function()
+    //{
         // 放在页面不好看，执行完后移除掉
        // this.parentNode.removeChild(this);
-    };
-    document.head.appendChild(temp);
+   //};
+    oHead.appendChild(temp);
+    console.log(temp.type)
 }
 injectCustomJs();
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
+browser.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
 
     if(request.cmd == 'copy') {
@@ -43,7 +47,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
         sendResponse(dataJson);
     }else if(request.cmd == 'parse'){//粘贴
 
-
+        console.log('粘贴')
+        console.log(request.data)
         if(request.data==null){
             alert('案件信息为空！请先复制江西庭审-发布信息页面!')
             return;
