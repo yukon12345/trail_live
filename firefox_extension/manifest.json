@@ -2,7 +2,7 @@
   //"update_url": "http://clients2.google.com/service/update2/crx",
   "description": "右键复制粘贴网庭审直播信息，助您直播顺顺利利~~yukon12345",
   "name": "愉快庭审直播",
-  "version": "1.0",
+  "version": "1.0.1",
   "author":"yukon12345",
   "background": {
     "scripts": ["js/jquery-1.12.4.min.js","js/background.js"]
@@ -16,9 +16,9 @@
   "homepage_url": "https://yukon12345.github.io/",
   "permissions": ["http://*/*", "https://*/*", "notifications" ,"menus"],
   "icons": {
-    "16": "img/living.png",
-    "48": "img/living.png",
-    "128": "img/living.png"
+    "16": "img/living-16.png",
+    "48": "img/living-48.png",
+    "128": "img/living-128.png"
   },
   "browser_action": {
     "default_icon": "img/living.png",
@@ -28,7 +28,7 @@
   "content_scripts": [{
     "js": ["js/jquery-1.12.4.min.js","js/content.js"],
     "css":["css/core.css"],
-    "matches": ["http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*", "https://*.baidu.com/*","http://tingshen.court.gov.cn/jiameng/caseRelease*"],
+    "matches": ["http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*","http://tingshen.court.gov.cn/jiameng/caseRelease*"],
     "run_at": "document_end",
     "all_frames":true
   }],

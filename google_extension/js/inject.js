@@ -86,7 +86,7 @@ window.addEventListener("message", function(e)
     $('#roomName').combobox('setValue', dataJson.KaiTingFaTing);
 
     //案件描述
-    $('#caseDescription').val(dataJson.liAnAnYou+',,,,'+dataJson.anJianMing)
+    $('#caseDescription').val(dataJson.liAnAnYou+'.................'+dataJson.anJianMing)
 
     //承办人
     $('#cbr').combobox('setValue', dataJson.chengBanRen);

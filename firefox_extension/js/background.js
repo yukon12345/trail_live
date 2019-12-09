@@ -34,7 +34,7 @@ browser.menus.create({
 
 
     },
-    documentUrlPatterns  : ['http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*', 'https://*.baidu.com/*']
+    documentUrlPatterns  : ['http://sf.dolawing.com/liti/TtrialliveLiveInfo/ttrialliveliveinfo*copyView.action*']
 });
 
 browser.menus.create({
@@ -47,7 +47,7 @@ browser.menus.create({
             //console.log('来自content的回复：'+response);
         });
     },
-    documentUrlPatterns:['http://tingshen.court.gov.cn/jiameng/caseRelease*', 'https://*.baidu.com/*']
+    documentUrlPatterns:['http://tingshen.court.gov.cn/jiameng/caseRelease*']
 });
 function sendMessageToContentScript(message, callback)
 {
