@@ -1,8 +1,8 @@
 {
   //"update_url": "http://clients2.google.com/service/update2/crx",
-  "description": "右键复制粘贴网庭审直播信息，助您直播顺顺利利~~yukon12345",
+  "description": "右键复制粘贴网庭审直播信息，助您直播顺顺利利~~微信:yukon12345678",
   "name": "愉快庭审直播",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author":"yukon12345",
   "background": {
     "scripts": ["js/jquery-1.12.4.min.js","js/background.js"]
@@ -13,7 +13,7 @@
       "id": "yukon12345@163.com"
     }
   },
-  "homepage_url": "https://yukon12345.github.io/",
+  "homepage_url": "http://yukon12345.gitee.io/",
   "permissions": ["http://*/*", "https://*/*", "notifications" ,"menus"],
   "icons": {
     "16": "img/living-16.png",
